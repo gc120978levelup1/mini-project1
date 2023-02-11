@@ -28,7 +28,8 @@ if (document.getElementById("mobiles-list"))
 document.getElementById("mobiles-list").innerHTML = /*html*/
 `${
     mobiles.map((item) => `
-            <div class="card mb-3 border-3 p-0 position-relative">
+            <div class="col mb-5" >
+              <div class="card mb-3 border-3 p-0 position-relative">
                 ${(item.on_sale) ? `
                 <img
                     height="70px"
@@ -60,6 +61,7 @@ document.getElementById("mobiles-list").innerHTML = /*html*/
                             Add to Cart
                         </button>
                     ` : ''}
+                </div>
                 </div>
             </div>
     `).join('\n')

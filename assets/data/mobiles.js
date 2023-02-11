@@ -22,5 +22,29 @@ export const mobiles = [
                 url : "/assets/img/mobiles/mobile0001_3.jpg"
             }
         ]
+    },
+    {
+        id          : 4353453455,
+        category_id : 95723450,
+        on_sale     : true,
+        description : "Poco X5 Pro Major Upgrades",
+        specs       : "8GB/256GB storage, Dynamic AMOLED 2X, 120Hz, HDR10+, 1750 nits (peak), Android 13, One UI 5.1",
+        unit_price  : 13422,
+        discount_p  : 40,
+        qty         : 100,
+        sold        : 20,
+        review_rate : 5,
+        main_image  : "/assets/img/mobiles/mobile0002_1.jpg",
+        images      : [
+            {
+                url : "/assets/img/mobiles/mobile0001_1.jpg"
+            },
+            {
+                url : "/assets/img/mobiles/mobile0001_2.jpg"
+            },
+            {
+                url : "/assets/img/mobiles/mobile0001_3.jpg"
+            }
+        ]
     }
 ]
