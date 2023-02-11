@@ -1,0 +1,15 @@
+category
+  - id
+  - name
+  - image
+
+item
+  - id
+  - on_sale
+  - description
+  - actual_unit_price
+  - discount_percentage
+  - qty
+  - category_id
+  - main_image
+  - image[]

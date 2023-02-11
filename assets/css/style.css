@@ -1,0 +1,26 @@
+*{
+    transition: all 700ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.style-animate-selection:hover{
+    transform: scale(1.1);
+    text-decoration: underline double rgb(0, 4, 128);
+    text-underline-position: under;
+    cursor: pointer;
+    color: rgb(0, 4, 128);
+}
+
+.style-animate-selection:active{
+    transform: translateY(10px);
+}
+
+a{
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
+.style-animate-selection2:hover{
+    transform: scale(1.1);
+    cursor: pointer;
+    color: rgb(0, 4, 128);
+}
