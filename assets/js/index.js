@@ -1,5 +1,5 @@
-import {categories        } from "../data/categories.js"
 import {users             } from "../data/users.js"
+import {categories        } from "../data/categories.js"
 import {mobiles           } from "../data/mobiles.js"
 import {mobile_accessories} from "../data/mobile_accessories.js"
 import {laptops           } from "../data/laptops.js"
@@ -11,6 +11,27 @@ import {shoes             } from "../data/shoes.js"
 
 document.addEventListener("DOMContentLoaded", () => {
 
+    let all_items = [
+                     ...mobiles, 
+                     ...mobile_accessories, 
+                     ...laptops, 
+                     ...desktops, 
+                     ...parts, 
+                     ...bags, 
+                     ...geek_tshirts, 
+                     ...shoes,
+                    ]
+
+    function check_login_status_if_OK(){
+        let login_status = localStorage.getItem('myStore-login');
+        if (login_status !== '1'){
+            window.location = 'login.html';
+            return false
+        }else{
+            return true
+        }
+    }
+
     function getRating(rating){
         let ret = ""
         for (let i = 0; i < rating; i++){
@@ -20,13 +41,13 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     function addCart(items, xid){
-        let x = items.filter((item) => (item.id === xid));
-        let cart_list = JSON.parse(localStorage.getItem('myStore-cart'));
-        cart_list.push(x[0]);
-        let cart_string = JSON.stringify(cart_list);
-        localStorage.setItem('myStore-cart', cart_string);
+        let cart_list = JSON.parse(localStorage.getItem('myStore-cart')) // fetch current cart contents from local storage
+        let x = items.filter((item) => (item.id === xid));               // search item with id = xid from list of items
+        cart_list.push(x[0]);                                            // add the found item to cart list
+        localStorage.setItem('myStore-cart', JSON.stringify(cart_list))  // store the new cart list contents to local storage
     }
 
+    // show items before being added to the shopping cart
     function getCardInnerHTMLof(items){
         return  items.map((item) => `
                         <div class="col mb-5" >
@@ -47,17 +68,19 @@ document.addEventListener("DOMContentLoaded", () => {
                                     data-bs-toggle="modal" data-bs-target="#staticBackdrop-${item.id}"
                                 />
                                 <div class="card-body" align="center">
-                                    <h5 class="card-title">${item.description}</h5>
-                                    <p class="card-text">${item.specs}</p>
-                                    <h4 class="text-warning"> <b> <i> ₱ ${item.unit_price.toLocaleString()} </i> </b> </h4>
+                                    <h5 class="card-title" style="height:25px;overflow-y:hidden">${item.description}</h5>
+                                    <p class="card-text" style="height:75px;overflow-y:hidden">${item.specs}</p>
+                                    <h4 class="text-warning" style="height:40px;overflow-y:hidden;white-space:nowrap;"> <b> <i> ₱${item.unit_price.toLocaleString()} </i> </b> </h4>
                                     ${(item.on_sale) ? `
-                                        <p class="card-text"><small class="text-muted">discounted ${item.discount_p}% off <span class="text-decoration-line-through"><b>₱ ${((item.unit_price) / ((100-item.discount_p)/100)).toLocaleString()}</b></span></small></p>
-                                    ` : '<p class="text-white">x</p>'}
+                                        <p class="card-text" style="height:25px;overflow-y:hidden;white-space:nowrap;"><small class="text-muted">discounted ${item.discount_p}% off <span class="text-decoration-line-through"><b>₱ ${((item.unit_price) / ((100-item.discount_p)/100)).toLocaleString()}</b></span></small></p>
+                                    ` : '<p class="text-white" style="height:25px;overflow-y:hidden">x</p>'}
                                     <div align="center" class="d-flex flex-row justify-content-center">
                                         <div class="p-2"> Sold <span class="badge bg-success">${item.sold}</span> </div>
                                         <div class="p-2"> Available <span class="badge bg-danger">${item.qty - item.sold}</span> </div>
                                     </div>
-                                    ${getRating(item.review_rate)}
+                                    <div style="height:50px;overflow-y:hidden">
+                                        ${getRating(item.review_rate)}
+                                    </div>
                                     ${((item.qty - item.sold) > 0) ? `
                                         <button 
                                             type="button" 
@@ -125,6 +148,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     `).join('\n')
     }
 
+    // show items after it has been added to the shopping cart
     function getCartListInnerHTMLof(items){
         return  items.map((item, i) => `
                         <div class="col mb-5" >
@@ -145,17 +169,19 @@ document.addEventListener("DOMContentLoaded", () => {
                                     data-bs-toggle="modal" data-bs-target="#staticBackdrop-${item.id}"
                                 />
                                 <div class="card-body" align="center">
-                                    <h5 class="card-title">${item.description}</h5>
-                                    <p class="card-text">${item.specs}</p>
-                                    <h4 class="text-warning"> <b> <i> ₱ ${item.unit_price.toLocaleString()} </i> </b> </h4>
+                                    <h5 class="card-title" style="height:25px;overflow-y:hidden">${item.description}</h5>
+                                    <p class="card-text" style="height:75px;overflow-y:hidden">${item.specs}</p>
+                                    <h4 class="text-warning" style="height:40px;overflow-y:hidden;white-space:nowrap;"> <b> <i> ₱${item.unit_price.toLocaleString()} </i> </b> </h4>
                                     ${(item.on_sale) ? `
-                                        <p class="card-text"><small class="text-muted">discounted ${item.discount_p}% off <span class="text-decoration-line-through"><b>₱ ${((item.unit_price) / ((100-item.discount_p)/100)).toLocaleString()}</b></span></small></p>
-                                    ` : '<p class="text-white">x</p>'}
+                                        <p class="card-text" style="height:25px;overflow-y:hidden;white-space:nowrap;"><small class="text-muted">discounted ${item.discount_p}% off <span class="text-decoration-line-through"><b>₱ ${((item.unit_price) / ((100-item.discount_p)/100)).toLocaleString()}</b></span></small></p>
+                                    ` : '<p class="text-white" style="height:25px;overflow-y:hidden">x</p>'}
                                     <div align="center" class="d-flex flex-row justify-content-center">
                                         <div class="p-2"> Sold <span class="badge bg-success">${item.sold}</span> </div>
                                         <div class="p-2"> Available <span class="badge bg-danger">${item.qty - item.sold}</span> </div>
                                     </div>
-                                    ${getRating(item.review_rate)}
+                                    <div style="height:50px;overflow-y:hidden">
+                                        ${getRating(item.review_rate)}
+                                    </div>
                                     ${((item.qty - item.sold) > 0) ? `
                                         <button 
                                             type="button" 
@@ -201,6 +227,7 @@ document.addEventListener("DOMContentLoaded", () => {
                     `).join('\n')
     }
 
+    // show items after it has been checked out
     function getIncomingListInnerHTMLof(items){
         return  items.map((item, i) => `
                         <div class="col mb-5" >
@@ -221,14 +248,14 @@ document.addEventListener("DOMContentLoaded", () => {
                                     data-bs-toggle="modal" data-bs-target="#staticBackdrop-${item.id}"
                                 />
                                 <div class="card-body" align="center">
-                                    <h5 class="card-title">${item.description}</h5>
-                                    <p class="card-text">${item.specs}</p>
+                                    <h5 class="card-title" style="height:25px;overflow-y:hidden">${item.description}</h5>
+                                    <p class="card-text" style="height:75px;overflow-y:hidden">${item.specs}</p>
                                     <p class="card-text">Ordered last ${item.order_date}</p>
                                     <p class="card-text">${item.payment_method}</p>
-                                    <h4 class="text-warning"> <b> <i> ₱ ${item.unit_price.toLocaleString()} </i> </b> </h4>
+                                    <h4 class="text-warning" style="height:40px;overflow-y:hidden;white-space:nowrap;"> <b> <i> ₱${item.unit_price.toLocaleString()} </i> </b> </h4>
                                     ${(item.on_sale) ? `
-                                        <p class="card-text"><small class="text-muted">discounted ${item.discount_p}% off <span class="text-decoration-line-through"><b>₱ ${((item.unit_price) / ((100-item.discount_p)/100)).toLocaleString()}</b></span></small></p><br>
-                                    ` : '<p class="text-white">x</p><br>'}
+                                        <p class="card-text" style="height:25px;overflow-y:hidden;white-space:nowrap;"><small class="text-muted">discounted ${item.discount_p}% off <span class="text-decoration-line-through"><b>₱ ${((item.unit_price) / ((100-item.discount_p)/100)).toLocaleString()}</b></span></small></p>
+                                    ` : '<p class="text-white" style="height:25px;overflow-y:hidden">x</p>'}
                                 </div>
                             </div>
                             
@@ -301,7 +328,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let  a = document.getElementById(`add-cart-${item.id}`);
             if (a){
                 a.onclick = () => {
-                    addCart(mobiles, item.id);
+                    if (check_login_status_if_OK()) addCart(mobiles, item.id);
                 }
             }
         }
@@ -315,7 +342,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let  a = document.getElementById(`add-cart-${item.id}`);
             if (a){
                 a.onclick = () => {
-                    addCart(mobile_accessories, item.id);
+                    if (check_login_status_if_OK()) addCart(mobile_accessories, item.id);
                 }
             }
         }
@@ -329,7 +356,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let  a = document.getElementById(`add-cart-${item.id}`);
             if (a){
                 a.onclick = () => {
-                    addCart(laptops, item.id);
+                    if (check_login_status_if_OK()) addCart(laptops, item.id);
                 }
             }
         }
@@ -343,7 +370,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let  a = document.getElementById(`add-cart-${item.id}`);
             if (a){
                 a.onclick = () => {
-                    addCart(desktops, item.id);
+                    if (check_login_status_if_OK()) addCart(desktops, item.id);
                 }
             }
         }
@@ -357,7 +384,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let  a = document.getElementById(`add-cart-${item.id}`);
             if (a){
                 a.onclick = () => {
-                    addCart(parts, item.id);
+                    if (check_login_status_if_OK()) addCart(parts, item.id);
                 }
             }
         }
@@ -371,7 +398,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let  a = document.getElementById(`add-cart-${item.id}`);
             if (a){
                 a.onclick = () => {
-                    addCart(bags, item.id);
+                    if (check_login_status_if_OK()) addCart(bags, item.id);
                 }
             }
         }
@@ -385,7 +412,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let  a = document.getElementById(`add-cart-${item.id}`);
             if (a){
                 a.onclick = () => {
-                    addCart(geek_tshirts, item.id);
+                    if (check_login_status_if_OK()) addCart(geek_tshirts, item.id);
                 }
             }
         }
@@ -399,7 +426,7 @@ document.addEventListener("DOMContentLoaded", () => {
             let  a = document.getElementById(`add-cart-${item.id}`);
             if (a){
                 a.onclick = () => {
-                    addCart(shoes, item.id);
+                    if (check_login_status_if_OK()) addCart(shoes, item.id);
                 }
             }
         }
@@ -410,19 +437,34 @@ document.addEventListener("DOMContentLoaded", () => {
         const queryString = window.location.search;
         const urlParams = new URLSearchParams(queryString);
         let fstring = urlParams.get('search').toString().toUpperCase();
-        // combine all products into a single list
-        let all_items = [...mobiles, ...mobile_accessories, ...laptops, ...desktops, ...parts, ...bags, ...geek_tshirts, ...shoes]
         let filtered = all_items.filter((item) => (
             item.description.toUpperCase().includes(fstring) || item.specs.toUpperCase().includes(fstring) || (fstring === '')
         ))
-        all_items = [...filtered]
-        search_list.innerHTML = `${ getCardInnerHTMLof(all_items) }`
+        search_list.innerHTML = `${ getCardInnerHTMLof(filtered) }`
         // add on-click handler for add cart buttons for mobiles
-        for (let item of all_items){
+        for (let item of filtered){
             let  a = document.getElementById(`add-cart-${item.id}`);
             if (a){
                 a.onclick = () => {
-                    addCart(all_items, item.id);
+                    if (check_login_status_if_OK()) addCart(filtered, item.id);
+                }
+            }
+        }
+    }
+
+    let on_sale_list = document.getElementById("on-sale-list")
+    if (on_sale_list){
+        // combine all products into a single list
+        let filtered = all_items.filter((item) => (
+            item.on_sale === true
+        ))
+        on_sale_list.innerHTML = `${ getCardInnerHTMLof(filtered) }`
+        // add on-click handler for add cart buttons for mobiles
+        for (let item of filtered){
+            let  a = document.getElementById(`add-cart-${item.id}`);
+            if (a){
+                a.onclick = () => {
+                    if (check_login_status_if_OK()) addCart(filtered, item.id);
                 }
             }
         }
@@ -447,6 +489,10 @@ document.addEventListener("DOMContentLoaded", () => {
     let logout = document.getElementById('logoutModal');
     if (logout){
         localStorage.setItem('myStore-login', '0');
+        localStorage.setItem('myStore-user-info', JSON.stringify({}));
+        localStorage.setItem('myStore-email','');
+        localStorage.setItem('myStore-cart', '[]');
+        localStorage.setItem('myStore-upcoming-deliveries', '[]');
     }
 
     let img = document.getElementById('main-icon')
@@ -460,7 +506,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
     
-
     let dashboard = document.getElementById('dashboard')
     if (dashboard){
         let login_status = localStorage.getItem('myStore-login');
@@ -552,6 +597,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (nos_items_in_cart){
         nos_items_in_cart.innerHTML = '0'
         let cart_list = JSON.parse(localStorage.getItem('myStore-cart'));
+        console.log(cart_list)
         if (cart_list){
             nos_items_in_cart.innerHTML = cart_list.length.toLocaleString();
         }

@@ -1,41 +1,76 @@
-*{
-    transition: all 700ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
+* {
+  transition: all 700ms cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.style-animate-selection:hover{
-    transform: scale(1.1);
-    text-decoration: underline double rgb(0, 4, 128);
-    text-underline-position: under;
-    cursor: pointer;
-    color: rgb(0, 4, 128);
+.style-animate-selection:hover {
+  transform: scale(1.1);
+  text-decoration: underline double rgb(0, 4, 128);
+  text-underline-position: under;
+  cursor: pointer;
+  color: rgb(0, 4, 128);
 }
 
-.style-animate-selection:active{
-    transform: translateY(10px);
+.style-animate-selection:active {
+  transform: translateY(10px);
 }
 
-a{
-    color: rgb(0, 0, 0);
-    text-decoration: none;
+a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
 }
 
-.style-animate-selection2:hover{
-    transform: scale(1.1);
-    cursor: pointer;
-    color: rgb(0, 4, 128);
+.style-animate-selection2:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+  color: rgb(0, 4, 128);
 }
 
-.text-white{
-    color: white;
+.text-white {
+  color: white;
 }
 
-.image-selection:hover{
-    cursor: pointer;
-    border: 3px solid red
+.image-selection:hover {
+  cursor: pointer;
+  border: 3px solid red;
 }
 
-.bd-checkout{
-    padding: 14px;
-    border: 3px solid rgb(132, 129, 129);
-    border-radius: 10px;
+.bd-checkout {
+  padding: 14px;
+  border: 3px solid rgb(132, 129, 129);
+  border-radius: 10px;
+}
+
+.pulse {
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  border-radius: 50%;
+  position: relative;
+  animation: animate 0.6s ease-in-out infinite;
+}
+
+.pulse i {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+  color: #fff;
+  height: 100%;
+  cursor: pointer;
+}
+
+@keyframes animate {
+  0% {
+    box-shadow: 0 0 0 0 rgb(255, 109, 74, 0.7), 0 0 0 0 rgb(255, 109, 74, 0.7);
+  }
+  40% {
+    box-shadow: 0 0 0 50px rgb(255, 109, 74, 0), 0 0 0 0 rgb(255, 109, 74, 0.7);
+  }
+  80% {
+    box-shadow: 0 0 0 50px rgb(255, 109, 74, 0), 0 0 0 30px rgb(255, 109, 74, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgb(255, 109, 74, 0), 0 0 0 30px rgb(255, 109, 74, 0);
+  }
 }
