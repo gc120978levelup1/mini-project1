@@ -24,3 +24,18 @@ a{
     cursor: pointer;
     color: rgb(0, 4, 128);
 }
+
+.text-white{
+    color: white;
+}
+
+.image-selection:hover{
+    cursor: pointer;
+    border: 3px solid red
+}
+
+.bd-checkout{
+    padding: 14px;
+    border: 3px solid rgb(132, 129, 129);
+    border-radius: 10px;
+}

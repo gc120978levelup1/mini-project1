@@ -18,6 +18,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
     <link href="./assets/css/carousel.css" rel="stylesheet" />
+    <script type="module" src="./assets/js/index.js"></script>
   </head>
   <body>
     <header>
@@ -30,6 +31,7 @@
               alt=""
               srcset=""
               class="rounded-circle"
+              id="main-icon"
             />
             myStore
           </a>
@@ -47,21 +49,36 @@
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-md-0">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Home</a>
+                <a class="nav-link" aria-current="page" href="index.html">Home</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Link</a>
+                <a class="nav-link" href="dashboard.html">
+                  Dashboard
+                  &nbsp;
+                  <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
+                </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link disabled">Disabled</a>
+                &nbsp;
+              </li>
+              <li class="nav-item">
+                <span class="text-primary position-relative">
+                  <h5 class="position-absolute top-50 start-100 translate-middle ">
+                      <span class="badge rounded-circle bg-danger">
+                          <span id="nos-of-items-in-cart">99+</span>
+                          <span class="visually-hidden">unread messages</span>
+                      </span>
+                  </h5>
+                </span>
               </li>
             </ul>
-            <form class="d-flex" role="search">
+            <form class="d-flex" role="search" action="search.html">
               <input
                 class="form-control me-2"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
+                name="search"
               />
               <button class="btn btn-outline-success" type="submit">
                 Search
@@ -85,7 +102,6 @@
     </main>
     <!-- bootstrap js -->
     <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="./assets/js/index.js"></script>
   </body>
 </html>
 .

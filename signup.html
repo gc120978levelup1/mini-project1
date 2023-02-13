@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>myStore</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/img/favicon.jpg"
+      type="image/jpeg"
+    />
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" />
+    <!-- custom css -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- font awesome css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link href="./assets/css/carousel.css" rel="stylesheet" />
+  </head>
+  <body
+    style="
+      background: url('/assets/img/signup-bg.jpg') no-repeat center center fixed;
+      background-repeat: no-repeat;
+      background-size: cover;
+      height: 100vh;
+      width: 100vw;
+      overflow: hidden;
+    "
+  >
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="#">
+            <img
+              height="40px"
+              src="./assets/img/favicon.jpg"
+              alt=""
+              srcset=""
+              class="rounded-circle"
+              id="main-icon"
+            />
+            myStore
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="index.html"
+                  >Home</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main style="height: 100vh">
+      <section id="categories">
+        <div class="container-fluid">
+          <br />
+          <br />
+
+          <!-- Modal -->
+          <div
+            class="modal fade"
+            id="signUpModal"
+            data-bs-backdrop="static"
+            data-bs-keyboard="false"
+            tabindex="-1"
+            aria-labelledby="exampleModalLabel"
+            aria-hidden="false"
+          >
+            <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+              <div class="modal-content">
+                <div class="modal-header bg-success">
+                  <h5 class="modal-title text-light" id="exampleModalLabel">
+                    New User Information Form
+                  </h5>
+                  <button
+                    type="button"
+                    class="btn-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                    onclick="window.location = '/';"
+                  ></button>
+                </div>
+                <div class="modal-body">
+                  <form>
+                    <div class="form-group mb-3">
+                      <label for="email1">Email:</label>
+                      <input
+                        type="email"
+                        class="form-control"
+                        id="email1"
+                        placeholder="Enter email"
+                        name="email1"
+                      />
+                    </div>
+                    <div class="form-group mb-3">
+                      <label for="password1">Password:</label>
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="password1"
+                        placeholder="Enter password"
+                        name="password1"
+                      />
+                    </div>
+                    <div class="form-group mb-3">
+                      <label for="confirm-pwd">Confirm Password:</label>
+                      <input
+                        type="password"
+                        class="form-control"
+                        id="confirm_pwd"
+                        placeholder="Confirm password"
+                        name="confirm_pwd"
+                      />
+                    </div>
+                    <hr />
+                    <div class="form-group mb-3">
+                      <label for="name">Name:</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="name"
+                        placeholder="Enter name"
+                        name="name"
+                      />
+                    </div>
+                    <div class="form-group mb-3">
+                      <label for="name">Phone Number</label>
+                      <input
+                        type="tel"
+                        class="form-control"
+                        id="contact"
+                        placeholder="Enter phone number"
+                        name="contact"
+                      />
+                    </div>
+                    <div class="form-group mb-3">
+                      <label for="name">Address</label>
+                      <input
+                        type="text"
+                        class="form-control"
+                        id="address"
+                        placeholder="Enter address"
+                        name="address"
+                      />
+                    </div>
+                    <hr />
+                    <div class="form-group mb-3">
+                        <label for="name">Picture</label>
+                        <input
+                          accept=".jpg"
+                          type="file"
+                          class="form-control"
+                          id="img"
+                          placeholder="Enter file image"
+                          name="img"
+                        />
+                      </div>
+                    <button
+                      type="submit"
+                      class="btn btn-primary"
+                      style="float: right"
+                    >
+                      Submit
+                    </button>
+                    <br>
+                    <br>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- bootstrap js -->
+    <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="./assets/js/index.js"></script>
+    <script>
+      var loginModal = new bootstrap.Modal(
+        document.getElementById("signUpModal"),
+        {
+          keyboard: false,
+        }
+      );
+      loginModal.show();
+    </script>
+  </body>
+</html>
+.

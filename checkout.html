@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>myStore</title>
+    <link
+      rel="shortcut icon"
+      href="./assets/img/favicon.jpg"
+      type="image/jpeg"
+    />
+    <!-- bootstrap css -->
+    <link rel="stylesheet" href="./bootstrap/css/bootstrap.min.css" />
+    <!-- custom css -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- font awesome css -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <link href="./assets/css/carousel.css" rel="stylesheet" />
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="user_info.html">
+            <img
+              height="40px"
+              src="./assets/img/favicon.jpg"
+              alt=""
+              srcset=""
+              class="rounded-circle"
+              id="main-icon"
+            />
+            myStore - Checkout
+          </a>
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navbarCollapse"
+            aria-controls="navbarCollapse"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+              <li class="nav-item">
+                <a class="nav-link" aria-current="page" href="index.html"
+                  >Home</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="dashboard.html">
+                  Dashboard &nbsp;
+                  <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
+                </a>
+              </li>
+              <li class="nav-item">&nbsp;</li>
+              <li class="nav-item">
+                <span class="text-primary position-relative">
+                  <h5
+                    class="position-absolute top-50 start-100 translate-middle"
+                  >
+                    <span class="badge rounded-circle bg-danger">
+                      <span id="nos-of-items-in-cart">99+</span>
+                      <span class="visually-hidden">unread messages</span>
+                    </span>
+                  </h5>
+                </span>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="logout.html">&nbsp;&nbsp;&nbsp;Logout</a>
+              </li>
+            </ul>
+            <form class="d-flex" role="search" action="search.html">
+              <input
+                class="form-control me-2"
+                type="search"
+                placeholder="Search"
+                aria-label="Search"
+                name="search"
+              />
+              <button class="btn btn-outline-success" type="submit">
+                Search
+              </button>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main>
+      <br />
+      <br />
+      <section id="checkout">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-8">
+              <div class="container">
+                <h2 class="mb-5">
+                  <i><b>Checkout Details</b></i>
+                </h2>
+                <hr>
+                <div class="accordion mb-5" id="accordionPanelsStayOpenExample">
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingOne">
+                      <button
+                        class="accordion-button"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseOne"
+                        aria-expanded="true"
+                        aria-controls="panelsStayOpen-collapseOne"
+                      >
+                        <i class="fa fa-user fa-2x text-danger" aria-hidden="true"></i>
+                        Your Identity
+                      </button>
+                    </h2>
+                    <div
+                      id="panelsStayOpen-collapseOne"
+                      class="accordion-collapse collapse show"
+                      aria-labelledby="panelsStayOpen-headingOne"
+                    >
+                      <div class="accordion-body">
+                        <strong id="user-name">This is the first item's accordion body.</strong>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2 class="accordion-header" id="panelsStayOpen-headingTwo">
+                      <button
+                        class="accordion-button"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseTwo"
+                        aria-expanded="true"
+                        aria-controls="panelsStayOpen-collapseTwo"
+                      >
+                        Contact Information
+                      </button>
+                    </h2>
+                    <div
+                      id="panelsStayOpen-collapseTwo"
+                      class="accordion-collapse collapse show"
+                      aria-labelledby="panelsStayOpen-headingTwo"
+                    >
+                      <div class="accordion-body">
+                        <span class="badge rounded-pill bg-success">Phone</span>
+                        <strong id="user-contact-info">This is the first item's accordion body.</strong>
+                        <br>
+                        <span class="badge rounded-pill bg-primary">Email&nbsp;</span>
+                        <strong id="user-email-info">This is the first item's accordion body.</strong>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="accordion-item">
+                    <h2
+                      class="accordion-header"
+                      id="panelsStayOpen-headingThree"
+                    >
+                      <button
+                        class="accordion-button"
+                        type="button"
+                        data-bs-toggle="collapse"
+                        data-bs-target="#panelsStayOpen-collapseThree"
+                        aria-expanded="true"
+                        aria-controls="panelsStayOpen-collapseThree"
+                      >
+                        Shipping Address
+                      </button>
+                    </h2>
+                    <div
+                      id="panelsStayOpen-collapseThree"
+                      class="accordion-collapse collapse show"
+                      aria-labelledby="panelsStayOpen-headingThree"
+                    >
+                      <div class="accordion-body">
+                        <span class="badge rounded-pill bg-warning text-dark">Home</span>
+                        <strong id="user-shipping-address">This is the first item's accordion body.</strong>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <h2 class="mb-5">
+                  <span class="text-primary position-relative">
+                    <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
+                  </span>
+                  <i><b>Shopping Cart Items</b></i>
+                </h2>
+                <hr>
+                <div class="row row-cols-md-3" id="shopping-cart-list"></div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="bd-checkout">
+                <div class="mb-3">
+                    <H4>Payent Method</H4>
+                </div>
+               
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="payment_method"
+                    id="payByCC"
+                  />
+                  <label class="form-check-label" for="payByCC">
+                    Pay by Credit/Debit Card
+                  </label>
+                  <div class="mb-3">
+                    <label for="cardNumber" class="form-label"
+                      >Card Number</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="cardNumber"
+                      name="cardNumber"
+                      placeholder="input credit card number"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="cardMonthYear" class="form-label"
+                      >Validity Month/Year</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="cardMonthYear"
+                      name="cardMonthYear"
+                      placeholder="input month/year"
+                    />
+                  </div>
+                  <div class="mb-3">
+                    <label for="cardCVV" class="form-label"
+                      >CVV</label
+                    >
+                    <input
+                      type="text"
+                      class="form-control"
+                      id="cardCVV"
+                      name="cardCVV"
+                      placeholder="input CVV"
+                    />
+                  </div>
+                </div>
+                <div class="form-check mb-3">
+                  <input
+                    class="form-check-input"
+                    type="radio"
+                    name="payment_method"
+                    id="payByCOD"
+                    checked
+                  />
+                  <label class="form-check-label" for="payByCOD">
+                    Cash On Delivery
+                  </label>
+                </div>
+
+                <div class="mb-3">
+                  <label for="exampleFormControlInput1" class="form-label"
+                    >Voucher</label
+                  >
+                  <input
+                    type="text"
+                    class="form-control"
+                    id="voucher-code-input"
+                    name="voucher-code-input"
+                    placeholder="Enter Voucher Code"
+                  />
+                </div>
+                <div class="mb-3">
+                  <label for="exampleFormControlTextarea1" class="form-label"
+                    >Additional Instructions</label
+                  >
+                  <textarea
+                    class="form-control"
+                    id="exampleFormControlTextarea1"
+                    rows="3"
+                  ></textarea>
+                </div>
+                <div class="mb-3">
+                    <br>
+                    <H4>Order Summary</H4>
+                    <div class="container">
+                        <div class="row mb-3">
+                            <div class="col-7">
+                                <label class="form-label">Sub Total</label>
+                            </div>
+                            <div class="col-1">
+                                <h6>₱</h6>
+                            </div>
+                            <div class="col-4">
+                                <h6 style="float:right" id="checkout-sub-total">-423947.00</h6>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-7">
+                                <label class="form-label">Shipping Fee</label>
+                            </div>
+                            <div class="col-1">
+                                <h6>₱</h6>
+                            </div>
+                            <div class="col-4">
+                                <h6 style="float:right" id="checkout-shipping-fee">-423947.00</h6>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-7">
+                                <label class="form-label">Shipping Fee Discount</label>
+                            </div>
+                            <div class="col-1">
+                                <h6>₱</h6>
+                            </div>
+                            <div class="col-4">
+                                <h6 style="float:right" id="checkout-shipping-fee-discount">-423947.00</h6>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                          <div class="col-7">
+                              <label class="form-label">Voucher Discount</label>
+                          </div>
+                          <div class="col-1">
+                              <h6>₱</h6>
+                          </div>
+                          <div class="col-4">
+                              <h6 style="float:right" id="voucher-discount">-0.00</h6>
+                          </div>
+                      </div>
+                        <hr>
+                        <div class="row mb-3">
+                            <div class="col-6">
+                                <label class="form-label">Grand Total</label>
+                            </div>
+                            <div class="col-1">
+                                <h4>₱</h4>
+                            </div>
+                            <div class="col-5 text-warning">
+                                <h4 style="float:right" id="checkout-grand-total">-423947.00</h4>
+                            </div>
+                        </div>
+                    </div>
+                    <br>
+                    <button type="submit" class="btn btn-danger" style="width:100%" id="place-order-btn" data-bs-toggle="modal" data-bs-target="#success-added-order"><h5>Place Order</h5></button>
+                    
+                    <!-- Modal -->
+                    <div class="modal fade" id="success-added-order" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog modal-lg modal-dialog-centered  modal-dialog-scrollable">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Order Status</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="history.go(0);"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <h2 class="text-success">
+                                        <i class="fa fa-check-circle fa-lg" aria-hidden="true"></i>
+                                        Successfully placed order!
+                                    </h2>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal" onclick="history.go(0);">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <!-- bootstrap js -->
+    <script src="./bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="./assets/js/index.js"></script>
+  </body>
+</html>
+.
