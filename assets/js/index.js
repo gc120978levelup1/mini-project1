@@ -73,7 +73,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     <h4 class="text-warning" style="height:40px;overflow-y:hidden;white-space:nowrap;"> <b> <i> ₱${item.unit_price.toLocaleString()} </i> </b> </h4>
                                     ${(item.on_sale) ? `
                                         <p class="card-text" style="height:25px;overflow-y:hidden;white-space:nowrap;"><small class="text-muted">discounted ${item.discount_p}% off <span class="text-decoration-line-through"><b>₱ ${((item.unit_price) / ((100-item.discount_p)/100)).toLocaleString()}</b></span></small></p>
-                                    ` : '<p class="text-white" style="height:25px;overflow-y:hidden">x</p>'}
+                                    ` : '<p class="card-text text-white" style="height:25px;overflow-y:hidden">x</p>'}
                                     <div align="center" class="d-flex flex-row justify-content-center">
                                         <div class="p-2"> Sold <span class="badge bg-success">${item.sold}</span> </div>
                                         <div class="p-2"> Available <span class="badge bg-danger">${item.qty - item.sold}</span> </div>
@@ -174,7 +174,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     <h4 class="text-warning" style="height:40px;overflow-y:hidden;white-space:nowrap;"> <b> <i> ₱${item.unit_price.toLocaleString()} </i> </b> </h4>
                                     ${(item.on_sale) ? `
                                         <p class="card-text" style="height:25px;overflow-y:hidden;white-space:nowrap;"><small class="text-muted">discounted ${item.discount_p}% off <span class="text-decoration-line-through"><b>₱ ${((item.unit_price) / ((100-item.discount_p)/100)).toLocaleString()}</b></span></small></p>
-                                    ` : '<p class="text-white" style="height:25px;overflow-y:hidden">x</p>'}
+                                    ` : '<p class="card-text text-white" style="height:25px;overflow-y:hidden">x</p>'}
                                     <div align="center" class="d-flex flex-row justify-content-center">
                                         <div class="p-2"> Sold <span class="badge bg-success">${item.sold}</span> </div>
                                         <div class="p-2"> Available <span class="badge bg-danger">${item.qty - item.sold}</span> </div>
@@ -255,7 +255,7 @@ document.addEventListener("DOMContentLoaded", () => {
                                     <h4 class="text-warning" style="height:40px;overflow-y:hidden;white-space:nowrap;"> <b> <i> ₱${item.unit_price.toLocaleString()} </i> </b> </h4>
                                     ${(item.on_sale) ? `
                                         <p class="card-text" style="height:25px;overflow-y:hidden;white-space:nowrap;"><small class="text-muted">discounted ${item.discount_p}% off <span class="text-decoration-line-through"><b>₱ ${((item.unit_price) / ((100-item.discount_p)/100)).toLocaleString()}</b></span></small></p>
-                                    ` : '<p class="text-white" style="height:25px;overflow-y:hidden">x</p>'}
+                                    ` : '<p class="card-text text-white" style="height:25px;overflow-y:hidden">x</p>'}
                                 </div>
                             </div>
                             
